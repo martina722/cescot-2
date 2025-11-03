@@ -1,0 +1,8 @@
+esercizio
+//verifico se il numero è maggiore di 0
+//se non è maggiore di 0 restituisco "errore"
+//se è maggiore di 0, imposto il risultato al valore di n
+//per n-1 volte
+ //moltiplico il risultato per il suo precedente (n-1)
+ // aggiorno il valore di n al suo precedente (n-1)
+//se è maggiore di 0 lo moltiplico per il suo precedente (n-1)
