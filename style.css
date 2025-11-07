@@ -1,0 +1,37 @@
+
+p {
+    color: blue;
+}
+
+/* tutti gli lementi che hanno la classe testo-rosso */
+.testo-rosso {
+    color:brown;
+}
+
+/* l'elemento con ID "sezione-2" */
+#sezione-2 {
+    color:chartreuse;
+}
+
+/* tutti gli elementi di tipo A che hanno la classe "testo-rosso" */
+a.testo-rosso {
+    color:azure;
+}
+
+/* tutti gli elementi di tipo A che hanno la classe testo-rosso e testo-marrone */
+a.testo-rosso.testo-marrone {
+    color:darkviolet;
+}
+
+/* tutti gli elementi di tipo A racchiusi all'interno di un elemento con classe testo-principale */
+p.testo-principale a {
+    color:rgb(255, 211, 80);
+}
+
+/* tutti gli elementi figli di un paragrafo, discendenza solo diretta, solo primo livello di discendenza */
+p > * {
+    color:green;
+}
+
+/* a parità di specificità, l'ultima regola che arriva è quella che vince, è considerata più importante */
+

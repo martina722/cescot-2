@@ -1,0 +1,66 @@
+/* coloro di rosso tutti gli elementi di tipo span **/
+span {
+    color:red;
+}
+
+/* coloro di blu tutti gli span nei paragrafi */
+p span {
+    color:blue;
+}
+
+/* coloro di verde il primo span con classe 1 che trovi nel doc. */
+div#sezione-1 > p.classe-1 span.classe-1 {
+    color:green;
+}
+
+/*coloro di viola paragrafo classe-1, dentro sezione-2 */
+.sezione-2 p.classe-1 {
+    color: purple;
+}
+
+/* colora di giallo il link al passaggio del mouse, da telefono funziona se ci clicco sopra, ma si apre subito il link quindi l'hover si vede per poco,
+non per forza però deve colorare qualcosa può anche indicare un cambiamento di scritta, che funzionerebbe anche su telefono */
+a:hover {
+    color:yellow;
+}
+
+/* coloro di rosso il paragrafo quando passo sopra col mouse */
+p.classe-2:hover {
+    color:chocolate;
+}
+
+/* coloro il primo paragrafo figlio di sezione-2 */
+.sezione-2 > p:not(.classe-1) {
+    color:crimson;
+}
+/* oppure un'alternativa migliore è: */
+.sezione-2 > p:first-child {
+    color:crimson;
+}
+
+/* coloro di turchese l'ennesimo figlio */
+.sezione-2 > :nth-child(1) {
+    color:darkturquoise;
+}
+
+/* coloro di arancione i figli pari, dispari si scriverebbe (2n + 1), oppure 1 ogni 4 sarebbe (4n) */
+.sezione-2 > :nth-child(2n) {
+    color:orange;
+}
+
+li:nth-child(even) {
+    color:green;
+}
+
+li:nth-child(odd) {
+    color:red;
+}
+
+ul li:first-child {
+    color:yellow;
+}
+
+/* oppure */
+li:nth-child(1), li:nth-child(3), li:nth-child(5) {
+    color:red;
+}
