@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff; /* Azzurro chiaro */
+            color: #333;
+        }
+
+        #game-info {
+            display: flex;
+            justify-content: space-between;
+            width: 320px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 80px); /* 4 colonne di 80px */
+            grid-template-rows: repeat(4, 80px); /* 4 righe di 80px */
+            gap: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card {
+            width: 80px;
+            height: 80px;
+            background-color: #3498db; /* Blu coperto */
+            border-radius: 8px;
+            cursor: pointer;
+            perspective: 1000px;
+            transition: transform 0.5s;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+            cursor: default;
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            border-radius: 8px;
+        }
+
+        .front-face {
+            background-color: #f1c40f; /* Giallo (il colore delle carte) */
+            color: #333;
+            transform: rotateY(180deg);
+        }
+
+        .back-face {
+            background-color: #3498db; /* Blu (il retro) */
+        }
+
+        .card.matched {
+            background-color: #2ecc71; /* Verde (carte abbinate) */
+            pointer-events: none; /* Non cliccabile */
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.8);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #e74c3c;
+            min-height: 25px;
+        }
+        
+        #restart-button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 1em;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #restart-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🧠 Memory Game</h1>
+
+    <div id="game-info">
+        <span>Tentativi: <span id="attempts">0</span></span>
+        <span>Coppie Trovate: <span id="matches">0/8</span></span>
+    </div>
+
+    <div id="game-board">
+        </div>
+
+    <div id="message"></div>
+    
+    <button id="restart-button">Ricomincia</button>
+
+    <script>
+        const symbols = ['⭐', '💖', '🚀', '💡', '💎', '🍕', '🌈', '👽'];
+        const gameBoard = document.getElementById('game-board');
+        const attemptsDisplay = document.getElementById('attempts');
+        const matchesDisplay = document.getElementById('matches');
+        const messageDisplay = document.getElementById('message');
+        const restartButton = document.getElementById('restart-button');
+
+        let deck = [];
+        let flippedCards = [];
+        let attempts = 0;
+        let matches = 0;
+        let lockBoard = false; // Variabile per prevenire clic multipli
+
+        // --- Funzioni di Gioco ---
+
+        // 1. Inizializza il gioco
+        function initGame() {
+            // Pulisce il tabellone precedente
+            gameBoard.innerHTML = '';
+            
+            // Crea il mazzo raddoppiando i simboli e mescolando
+            deck = [...symbols, ...symbols];
+            shuffle(deck);
+            
+            // Resetta le statistiche
+            flippedCards = [];
+            attempts = 0;
+            matches = 0;
+            attemptsDisplay.textContent = 0;
+            matchesDisplay.textContent = '0/8';
+            messageDisplay.textContent = '';
+            lockBoard = false;
+
+            // Genera le carte nell'HTML
+            deck.forEach((symbol, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.classList.add('card');
+                cardElement.dataset.symbol = symbol;
+                cardElement.dataset.index = index;
+                
+                // Crea il retro (blu)
+                const backFace = document.createElement('div');
+                backFace.classList.add('card-face', 'back-face');
+                
+                // Crea il fronte (simbolo)
+                const frontFace = document.createElement('div');
+                frontFace.classList.add('card-face', 'front-face');
+                frontFace.textContent = symbol;
+                
+                cardElement.appendChild(backFace);
+                cardElement.appendChild(frontFace);
+                
+                cardElement.addEventListener('click', flipCard);
+                gameBoard.appendChild(cardElement);
+            });
+        }
+
+        // 2. Mescola le carte (Algoritmo di Fisher-Yates)
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // 3. Gestisce il click su una carta
+        function flipCard() {
+            if (lockBoard || this === flippedCards[0] || this.classList.contains('matched')) return;
+
+            this.classList.add('flipped');
+            flippedCards.push(this);
+
+            if (flippedCards.length === 2) {
+                attempts++;
+                attemptsDisplay.textContent = attempts;
+                lockBoard = true;
+                checkForMatch();
+            }
+        }
+
+        // 4. Controlla se le due carte sono uguali
+        function checkForMatch() {
+            const [card1, card2] = flippedCards;
+            const isMatch = card1.dataset.symbol === card2.dataset.symbol;
+
+            if (isMatch) {
+                // Coppia trovata!
+                matches++;
+                matchesDisplay.textContent = `${matches}/8`;
+                card1.classList.add('matched');
+                card2.classList.add('matched');
+                messageDisplay.textContent = '🎉 Coppia Trovata!';
+                resetFlippedCards();
+                
+                if (matches === symbols.length) {
+                    // Vittoria!
+                    setTimeout(() => {
+                        messageDisplay.textContent = `VITTORIA! Hai finito in ${attempts} tentativi!`;
+                        lockBoard = true;
+                    }, 500);
+                }
+            } else {
+                // Nessuna corrispondenza
+                messageDisplay.textContent = '❌ Riprova...';
+                setTimeout(unflipCards, 1000); // Tieni le carte girate per 1 secondo
+            }
+        }
+
+        // 5. Rigira le carte non abbinate
+        function unflipCards() {
+            flippedCards.forEach(card => card.classList.remove('flipped'));
+            resetFlippedCards();
+            messageDisplay.textContent = '';
+        }
+
+        // 6. Resetta lo stato delle carte girate
+        function resetFlippedCards() {
+            flippedCards = [];
+            lockBoard = false;
+        }
+
+        // --- Event Listener ---
+        restartButton.addEventListener('click', initGame);
+
+        // Avvia il gioco al caricamento della pagina
+        initGame();
+
+    </script>
+</body>
+</html>

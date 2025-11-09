@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Gioco Clicca</title>
+    <style>
+        /* Stile CSS per rendere il gioco un po' più carino */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #gioco {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #bottone-clic {
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        #bottone-clic:hover {
+            background-color: #45a049;
+        }
+
+        #bottone-clic:active {
+            background-color: #3e8e41;
+        }
+
+        #contatore {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="gioco">
+        <h1>🎯 Clicca il Bottone!</h1>
+        <p>l'obiettivo è cliccare il bottone velocissimo.</p>
+        
+        <div id="contatore">0</div>
+
+        <button id="bottone-clic">CLICCA QUI!</button>
+    </div>
+
+    <script>
+        // Codice JavaScript per la logica del gioco
+        let conteggioClic = 0;
+        const contatoreElemento = document.getElementById('contatore');
+        const bottoneClic = document.getElementById('bottone-clic');
+
+        // Funzione eseguita ad ogni clic
+        function gestisciClic() {
+            conteggioClic += 1; // Incrementa il contatore
+            contatoreElemento.textContent = conteggioClic; // Aggiorna il testo visualizzato
+        }
+
+        // Aggiunge l'ascoltatore di eventi al bottone
+        bottoneClic.addEventListener('click', gestisciClic);
+
+    </script>
+
+</body>
+</html>
