@@ -1,0 +1,67 @@
+/*
+    Es 1 - Colora di rosso tutti gli elementi di tipo SPAN
+*/
+span {
+    color: red;
+}
+
+/*
+    Es 2 - Colora di blu tutti gli span contenuti all'interno di un paragrafo
+*/
+p span {
+    color: blue;
+}
+
+/*
+    Es 3 - Colora di verde il primo span con classe-1 che trovi nel documento
+*/
+div#sezione-1 > p.classe-1 span.classe-1 {
+    color: green;
+}
+
+/*
+    Es 4 - Colora di viola l'ultimo paragrafo con classe-1 che trovi
+*/
+.sezione-2 > .classe-1 {
+    color: purple;
+}
+
+/*
+    Es 5 - Colora di giallo il link al passaggio del mouse
+*/
+a:hover {
+    color: yellow;
+}
+
+/*
+    Es 6 - Colora di rosa il primo paragrafo con classe-2 al passaggio del mouse
+*/
+p.classe-2:hover {
+    color: pink;
+}
+
+/*
+    Es 7 - Colora di arancione il primo paragrafo figlio di sezione-2
+*/
+/*.sezione-2 > p:not(.classe-1) {
+    color: orange;
+}*/
+.sezione-2 > :nth-child(2) {
+    color: orange;
+}
+
+li:nth-child(even) {
+    color: green;
+}
+
+li:nth-child(odd) {
+    color: red;
+}
+
+ul li:first-child {
+    color: yellow;
+}
+
+li:nth-child(1), li:nth-child(3), li:nth-child(5) {
+    color: red;
+}

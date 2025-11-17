@@ -1,0 +1,112 @@
+/* Tutti i paragrafi colorati di blu */
+p {
+    color: blue;
+}
+
+/* Tutti gli elementi che hanno la classe "testo-rosso" */
+.testo-rosso {
+    color: red;
+}
+
+/* L'elemento con ID "sezione-2" */
+#sezione-2 {
+    color: purple;
+}
+
+/* Tutti gli elementi di tipo A che hanno la classe "testo-rosso" */
+a.testo-rosso {
+    color: brown;
+}
+
+/* Tutti gli elementi di tipo A che hanno le classi "testo-rosso" E "testo-marrone" */
+a.testo-rosso.testo-marrone {
+    color: darkred;
+}
+
+/* 
+    Tutti gli elementi di tipo A racchiusi all'interno
+    di un paragrafo con classe "testo-principale" 
+*/
+p.testo-principale a {
+    color: yellow;
+}
+
+/*
+    Tutti gli elementi figli di un paragrafo
+*/
+p > * {
+    color: green;
+}
+
+/*
+    Seleziona l'elemento di tipo A su cui l'utente ha il mouse
+*/
+a:hover {
+    color: white;
+}
+
+/*
+    Seleziona gli elementi che NON hanno classe "io-no" 
+*/
+:not(.io-no) {
+    color: blue;
+}
+
+/*
+    Selezione dei figli
+*/
+:first-child { /* PRIMO FIGLIO */ }
+:last-child { /* ULTIMO FIGLIO */ }
+:nth-child(2) { /* N-simo FIGLIO (in questo caso secondo figlio) */ }
+:nth-child(2n) { /* Figli pari */ }
+:nth-child(even) { /* Figli pari */ }
+:nth-child(2n + 1) { /* Figli dispari */ }
+:nth-child(odd) { /* Figli dispari */ }
+:nth-child(3n) { /* Un figlio ogni 3 */ }
+
+/* Regole CSS Base */
+body {
+    font-size: 16px;
+}
+
+p {
+    color: #f9f9f9;
+    background-color: #111111;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    text-decoration: underline; /* none | underline | line-through */
+    text-align: left; /* left | center | right | justify */
+    text-transform: capitalize; /* none | uppercase | lowercase | capitalize */
+}
+
+p span {
+    font-size: 1.5rem;
+    font-weight: bold; /* normal | bold | 100 ... 900 */
+    font-style: italic; /* normal | italic */
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+body {
+    background-color: #fcd1d1;
+}
+
+div#spazi {
+    background-color: #fb7979;
+    margin: 50px 30px;
+        margin-top: 50px;
+        margin-right: 30px;
+        margin-bottom: 50px;
+        margin-left: 30px;
+    padding: 50px;
+    border: solid 1px #111;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #111;
+}
+
+div#spazi-2 { background-color: #fb7979 }
+h1 { margin-bottom: 50px;}
+h2 { margin-top: 20px;} /* Tra H1 e H2 ci saranno 50px di distanza */
