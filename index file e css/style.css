@@ -3,5 +3,21 @@
 }
 
 .main {
-    color: green;
+    color: #aba220;
+    background-color: cyan;
+    font-family: arial, helvetica, sans-serif;
 }
+
+/* regole css base */
+p {
+    background-color: blueviolet;
+    color: white;
+    font-family: ubuntu, sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    font-style: italic;
+    text-decoration: underline;
+    text-align: center;
+    text-transform: uppercase;
+}
+
