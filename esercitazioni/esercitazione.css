@@ -1,0 +1,19 @@
+p span {
+    color:rgb(210, 30, 153);
+    text-decoration: underline;
+    font-size: 29px;
+}
+
+.marti {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    color: rgb(188, 225, 188);
+    font-weight: bold;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: darkorchid;
+    padding: 50px;
+    border: rgb(210, 107, 107) 5px dashed; /* oppure si separano mettendo uno sotto l'altro border-width, color e style */
+}

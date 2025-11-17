@@ -1,0 +1,57 @@
+div > *:nth-child(1) {
+    background-color: orange;
+}
+div > *:nth-child(2) {
+    background-color: rgb(221, 153, 6);
+}
+div > *:nth-child(3) {
+    background-color: rgb(255, 102, 0);
+}
+div > *:nth-child(4) {
+    background-color: rgb(181, 93, 6);
+}
+
+div.inline > * {
+    display: inline;
+}
+
+div.inline-block > * {
+    display: inline-block;
+    width: 50px;
+}
+
+.none {
+    display: none;
+}
+
+div.block > * {
+    display: block;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.opacity-1 {
+    opacity: 1;
+}
+
+.flex {
+    display: flex;
+    background-color: pink;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+
+
