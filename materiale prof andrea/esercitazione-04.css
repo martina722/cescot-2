@@ -1,0 +1,34 @@
+.intro > * {
+    max-width: 100%;
+}
+
+div.es {
+    display: flex;
+    background-color: pink;
+}
+
+div.es > * {
+    padding: 10px 25px;
+}
+
+div.es > *:nth-child(1) { background-color: orange; }
+div.es > *:nth-child(2) { background-color: orangered; }
+div.es > *:nth-child(3) { background-color: red; }
+
+/* Esercizio 1 */
+.es-01 {
+    justify-content: space-between;
+}
+
+/* Esercizio 2 */
+.es-02 > *:nth-child(2) { flex-grow: 1; }
+
+/* Esercizio 3 */
+.es-03 > *:nth-child(2) { order: 1; }
+.es-03 > *:nth-child(3) { flex-grow: 1; }
+
+/* Esercizio 4 */
+.es-04 {
+    flex-direction: row-reverse;
+    justify-content: center;
+}
