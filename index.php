@@ -30,14 +30,25 @@ $array_2 = array(1,2,3,4,5);
 
 // array associativo, si accede ai valori tramite chiavi testuali
 $array_3 = array(
-    "nome" => "Mario";
-    "cognome" => "Rossi";
-    "eta" => 30;
+    "nome" => "Mario",
+    "cognome" => "Rossi",
+    "eta" => 21
 );
 
 echo $array_3; // non posso stampare direttamente un array
 print_r($array_3); // stampo il contenuto di un array
 var_dump($array_3); // stampo il contenuto di un array con più dettagli
+
+// verifica se Mario Rossi è maggiorenne
+if ($array_3["eta"] >= 18) {
+    echo "Utente maggiorenne";
+} else {
+    echo "Utente minorenne";
+}
+
+echo "<br/>";
+
+
 ?>
 
 <?php
