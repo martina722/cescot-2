@@ -26,7 +26,7 @@ $nomeVariabileValida;
 // Array, contenitore di più valori:
 // array anonimo, si accede ai valori tramite l'indice numerico
 $array = [1, 2, 3, 4, 5];
-$array_2 = array(1,2,3,4,5);
+$array_2 = array(1, 2, 3, 4, 5);
 
 // array associativo, si accede ai valori tramite chiavi testuali
 $array_3 = array(
@@ -48,6 +48,18 @@ if ($array_3["eta"] >= 18) {
 
 echo "<br/>";
 
+// verifica se Mario ha 18 anni
+if ($array_3["eta"] == "18") {
+    echo "Utente non diciottenne<br/>";
+} else {
+    echo "Utente non diciottenne<br/>";
+}
+
+// ugualianza stretta, controlla valore e tipo
+if ($array_3["eta"] == 21) {} // questa condizione è VERA
+if ($array_3["eta"] === "21") {} // questa condizione è FALSA
+if ($array_3["eta"] == 21) {} // questa condizione è VERA
+if ($array_3["eta"] === "21") {} // questa condizione è FALSA
 
 ?>
 
