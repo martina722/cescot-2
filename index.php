@@ -30,9 +30,9 @@ $array_2 = array(1,2,3,4,5);
 
 // array associativo, si accede ai valori tramite chiavi testuali
 $array_3 = array(
-    "nome => "Mario",
-    "cognome" => "Rossi",
-    "eta" => 30
+    "nome" => "Mario";
+    "cognome" => "Rossi";
+    "eta" => 30;
 );
 
 echo $array_3; // non posso stampare direttamente un array
