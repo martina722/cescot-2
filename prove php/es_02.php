@@ -250,4 +250,25 @@ function traduci_mese($mese) {
             return false;
     endswitch;
 }
+
+/* esercizio 4 = data l'eta di una persona, ritorna se può guidare il 125 */
+$numero = 7;
+function può_guidare_125($età) {
+    if ($età >= 16) :
+        return true;
+    else :
+        return false;
+    endif;
+}
+
+// dato un numero verifica che sia divisibile per 3
+function è_divisibile_per_3($numero) {
+    return $numero % 3 == 0;
+}
+
+// dato un numero, ritornalo in formato EURO (€ 1.234,56)
+function formatta_euro($numero) {
+    return "€ " . number_format($numero, 2, ".", "");
+}
+
 ?>
