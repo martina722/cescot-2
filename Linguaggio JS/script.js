@@ -162,4 +162,12 @@ console.log(document.getElementsByTagName('p'));
 console.log(document.querySelector('.elementi'));
 console.log(document.querySelectorAll('.elementi'));
 
+var lista = document.getElementById('genitore');
+var lista = document.getElementsByClassName('figlio'); // 3 figlio
+
+lista.innerHTML = "<li>1</li><li class='figlio'>2</li>";
+console.log(lista.getElementsByClassName('figlio')); // 1 figlio
+
+// inserisci testo semplice nell'elemento
+lista.innerText = "<li>1</li><li class='figlio'>2</li>";
 
