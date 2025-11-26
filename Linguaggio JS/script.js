@@ -156,6 +156,10 @@ switch (mese) {
 }
 
 console.log(document.getElementById("elemento-01"));
-console.log(document.getElementsByClassName('elementi'))
+console.log(document.getElementsByClassName('elementi'));
+console.log(document.getElementsByTagName('p'));
+
+console.log(document.querySelector('.elementi'));
+console.log(document.querySelectorAll('.elementi'));
 
 
