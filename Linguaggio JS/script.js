@@ -113,6 +113,48 @@ if (numero % 2 == 0) {
     window.alert("Numero dispari");
 }
 
+var mese = window.prompt("Inserisci il numero del mese");
+switch (mese) {
+    case "1":
+        window.alert ("Gennaio");
+        break;
+    case "2":
+        window.alert ("Febbraio");
+        break;
+    case "3":
+        window.alert ("Marzo");
+        break;
+    case "4":
+        window.alert ("Aprile");
+        break;
+    case "5":
+        window.alert ("Maggio");
+        break;
+    case "6":
+        window.alert ("Giungno");
+        break;
+    case "7":
+        window.alert ("Luglio");
+        break;
+    case "8":
+        window.alert ("Agosto");
+        break;
+    case "9":
+        window.alert ("Settembre");
+        break;
+    case "10":
+        window.alert ("Ottobre");
+        break;
+    case "11":
+        window.alert ("Novembre");
+        break;
+    case "12":
+        window.alert ("Dicembre");
+        break;
+        default :
+        window.alert("mese non valido");
+}
 
+console.log(document.getElementById("elemento-1"));
 
 
