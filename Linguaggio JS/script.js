@@ -104,6 +104,15 @@ console.log(e == true); // falso
 console.log(d == e); // entrambi falsi -> true
 console.log(d === e); //null è diverso da undefined
 
+// controllo di flusso
+var numero = window.prompt("Inserisci un numero");
+
+if (numero % 2 == 0) {
+    window.alert("Numero pari");
+} else {
+    window.alert("Numero dispari");
+}
+
 
 
 
