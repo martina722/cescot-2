@@ -1,0 +1,11 @@
+persona = {
+    "nome": "Mario",
+    "cognome": "Rossi",
+    "età": 30,
+    "indirizzo": {
+        "città": "Milano",
+        "via": "Via Roma",
+        "CAP": "20100"
+    },
+    "hobby": ["calcio", "lettura", "viaggi"]
+}
