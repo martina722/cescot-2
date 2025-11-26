@@ -170,4 +170,6 @@ console.log(lista.getElementsByClassName('figlio')); // 1 figlio
 
 // inserisci testo semplice nell'elemento
 lista.innerText = "<li>1</li><li class='figlio'>2</li>";
+console.log(lista.getElementsByClassName('figlio'));
+
 
