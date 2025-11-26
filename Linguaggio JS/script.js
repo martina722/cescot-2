@@ -155,6 +155,7 @@ switch (mese) {
         window.alert("mese non valido");
 }
 
-console.log(document.getElementById("elemento-1"));
+console.log(document.getElementById("elemento-01"));
+console.log(document.getElementsByClassName('elementi'))
 
 
