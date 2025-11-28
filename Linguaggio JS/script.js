@@ -1,14 +1,14 @@
 // stampa in console
-console.log("Ciao mondo") ;
+console.log("Ciao mondo");
 
 // mostra un pop up con messaggio
-window.alert("Benvenuti") ;
+window.alert("Benvenuti");
 
 // pop up con richiesta
-window.confirm("sei sicuro?") ;
+window.confirm("sei sicuro?");
 
 // mostra pop up che chiede un dato
-window.prompt("inserisci un numero") ;
+window.prompt("inserisci un numero");
 
 // dichiarazione variabile
 var stringa = "Ciao mondo" ; /* variabile globale, quando l'ho dichiarata la vedono 
@@ -20,15 +20,15 @@ variabile, ma l'oggetto e il suo stato (es. aperto, chiuso), queste informazioni
 una costante */
 
 // stringhe
-var stringa = "insieme di caratteri!" ;
-console.log(stringa[2]) ;
+var stringa = "insieme di caratteri!";
+console.log(stringa[2]);
 console.log(typeof stringa);
 
-// numeri interi
+// numeri interi -> int
 var intero = 1;
 console.log(typeof intero);
 
-// decimali
+// decimali -> float
 var decimale = 1.2;
 console.log(typeof decimale);
 
@@ -50,6 +50,7 @@ console.log(typeof object);
 // operatori aritmetici
 var a = 1;
 var b = 2;
+var c = 1;
 
 console.log(a + b);
 console.log(a - b);
@@ -87,7 +88,7 @@ console.log(somma.lenght); // lunghezza della stringa
 console.log(a + b + c); // 51, perchè 2+3=5 poi aggiungo "1", quindi 51
 
 var d;
-console.log(d); // tipo di dato indefinito
+console.log(d); // tipo di dato indefinito (undefined)
 d = undefined;
 
 var e = null
@@ -98,7 +99,6 @@ var oggetto = {
     "undefined": undefined
 };
 console.log(oggetto);
-
 console.log(d == true); // falso
 console.log(e == true); // falso
 console.log(d == e); // entrambi falsi -> true
@@ -117,45 +117,45 @@ var mese = window.prompt("Inserisci il numero del mese");
 switch (mese) {
     case "1":
         window.alert ("Gennaio");
-        break;
+    break;
     case "2":
         window.alert ("Febbraio");
-        break;
+    break;
     case "3":
         window.alert ("Marzo");
-        break;
+    break;
     case "4":
         window.alert ("Aprile");
-        break;
+    break;
     case "5":
         window.alert ("Maggio");
-        break;
+    break;
     case "6":
         window.alert ("Giungno");
-        break;
+    break;
     case "7":
         window.alert ("Luglio");
-        break;
+    break;
     case "8":
         window.alert ("Agosto");
-        break;
+    break;
     case "9":
         window.alert ("Settembre");
-        break;
+    break;
     case "10":
         window.alert ("Ottobre");
-        break;
+    break;
     case "11":
         window.alert ("Novembre");
-        break;
+    break;
     case "12":
         window.alert ("Dicembre");
-        break;
-        default :
+    break;
+    default :
         window.alert("mese non valido");
 }
 
-console.log(document.getElementById("elemento-01"));
+console.log(document.getElementById("elemento-1"));
 console.log(document.getElementsByClassName('elementi'));
 console.log(document.getElementsByTagName('p'));
 
@@ -163,13 +163,12 @@ console.log(document.querySelector('.elementi'));
 console.log(document.querySelectorAll('.elementi'));
 
 var lista = document.getElementById('genitore');
-var lista = document.getElementsByClassName('figlio'); // 3 figlio
+var lista = document.getElementsByClassName('figlio'); // 3 figli
 
+// inserisci il codice HTML nell'elemento
 lista.innerHTML = "<li>1</li><li class='figlio'>2</li>";
 console.log(lista.getElementsByClassName('figlio')); // 1 figlio
 
 // inserisci testo semplice nell'elemento
 lista.innerText = "<li>1</li><li class='figlio'>2</li>";
-console.log(lista.getElementsByClassName('figlio'));
-
-
+console.log(lista.getElementsByClassName('figlio')); // 0 figli

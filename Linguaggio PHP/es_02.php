@@ -36,9 +36,25 @@
 
 // es. 1 = dato un insieme di valori, trovare il valore più alto
 $valori =[1, 3, 5, 2, 5, 3, 8, 4, 7];
-$massimo = max($numeri); /* La funzione max() scorre l'intero array e confronta ogni elemento per identificare e 
+$massimo = 0
+/* oppure, con intelligenza artificiale:
+$massimo = max($numeri); -> La funzione max() scorre l'intero array e confronta ogni elemento per identificare e 
 restituire quello con il valore numerico più grande */
-echo "Il valore massimo nell'array è: " . $massimo; // Output: 8
+
+for ($i = 0; $i < count($valori); $i++) :
+    if ($valori[$i] > $massimo) :
+        $massimo = $valori[$i];
+    endif;
+endfor;
+
+?>
+    <div>
+        <h2>esercizio 01</h2>
+        <p>
+            il valore maggiore è: <?php echo $massimo; ?>
+        </p>
+    </div>
+<?php
 
 //stampa tutti gli elementi, finchè l'elemento corrente è inferiore a 15
 $valori = [12, 13, 5, 18, 20, 7, 14];
@@ -58,7 +74,17 @@ while ($i < count($valori) && $valori[$i] < 15) :
     $i++;
 endwhile;
 
-// operatoi di incremento/decremento
+?>
+    <div>
+        <h2>esercizio 02</h2>
+        <p>
+            i valori sono: <br/>
+            <?php echo $output; ?>
+        </p>
+    </div>
+<?php
+
+// operatori di incremento/decremento
 $i++; 
 ++$i;
 
@@ -95,24 +121,49 @@ $persone = [
         "nome" => "Giulia",
         "età" => 17
     )
-    ];
+];
 
-// array multidimensionale = matrice
-foreach ($persone as $persona) : /* ciclo for-each: per ogni elemento dell'array $persone, assegna l'elemento corrente 
+$anni = 0;
+?>
+    <div>
+        <h2>esercizio 03</h2>
+        <p>le persone maggiorenni sono:</p>
+        <ul>
+            <?php
+            // array multidimensionale = matrice
+            foreach ($persone as $persona) : /* ciclo for-each: per ogni elemento dell'array $persone, assegna l'elemento corrente 
     alla variabile $persona e esegui il blocco di codice */
-    if ($persona["eta"] >= 18) :
-        echo "<li>" .$persona["nome"]."</li>";
-    endif;
-    $anni += $persona["eta"];
-endforeach;
+                if ($persona["eta"] >= 18) :
+                    echo "<li>".$persona["nome"]."</li>";
+                endif;
+                $anni += $persona["eta"];
+            endforeach;
+            // ciclo for alternativo
+            /*
+            for ($i = 0; $i < count($persone); $i++) :
+                if ($persone[$i]["eta"] >= 18) :
+                    echo "<li>".$persone[$i]["nome"]."</li>";
+                endif;
+                $anni += $persone[$i]["eta"];
+            endfor;
+            */
+            ?>
+        </ul>
+        <p>
+            l'età media delle persone è:
+            <?php echo ($anni / count($persone)); ?>
+        </p>
+    </div>
+<?php
 
 if ($persone["eta"] >= 18) {
         echo "Utente maggiorenne<br/>";
     } else {
         echo "Utente minorenne<br/>";
     }
-// calcolo media età
-    echo ( $anni / count($persone) );
+endif;
+
+echo ( $anni / count($persone) );
 
 $settimana = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 
@@ -151,39 +202,40 @@ for ($i = 1; $i <= 10; $i++) :
     $prodotto = $numero * $i;
     echo "$numero x $i = $prodotto<br/>";
 endfor;
+br();
 
 /* riutilizzare un pezzo di codice = funzione, ogni volta che la chiamo, esegue le istruzioni al suo interno, è come un 
 mini-programma */
-br ();
-$persone = [
+
+$studenti = [
     array(
         "nome" => "Mario",
-        "età" => 30
+        "eta" => 30
         "voti" => [6, 7, 8, 9, 10]
     ) ,
     array(
         "nome" => "Luisa",
-        "età" => 25
+        "eta" => 25
         "voti" => [7, 8, 6, 9, 10]
     ) , 
     array(
         "nome" => "Carlo",
-        "età" => 35
+        "eta" => 35
         "voti" => [8, 9, 7, 6, 10]
     ) , 
     array(
         "nome" => "Anna",
-        "età" => 28
+        "eta" => 28
         "voti" => [9, 8, 7, 6, 10]
     ) ,
     array(
         "nome" => "Paolo",
-        "età" => 14
+        "eta" => 14
         "voti" => [6, 5, 7, 8, 9]
     ) ,
     array(
         "nome" => "Giulia",
-        "età" => 17
+        "eta" => 17
         "voti" => [7, 8, 9, 6, 10]
     )
     ];
@@ -192,7 +244,6 @@ $persone = [
      * calcola la media aritmetica dei voti.
      * 
      * @param int[] $voti i voti dello studente
-     * 
      * @return float la media aritmetica dei voti
      */
 function calcola_media($voti) {
@@ -218,10 +269,39 @@ endforeach;
 
 function formatta_data($data) {
     $parti = explode(" ", $data); // suddivide la stringa in un array
+    $giorno_della_settimana = traduci_giorno_settimana($parti[0]);
+    $giorno_del_mese = $parti[1];
+    $mese = traduci_mese($parti[2]);
+    $anno = $parti[3];
+
+    return $giorno_della_settimana . " " . $giorno_del_mese . " " . $mese . " " . $anno;
+}
+
+echo formatta_data("Monday 14 September 2025");
+
+function traduci_giorno_della_settimana($giorno) {
+    switch(strtolower($giorno)):
+        case "monday":
+            return "lunedì";
+        case "tuesday":
+            return "martedì";
+        case "wednesday":
+            return "mercoledì";
+        case "thursday":
+            return "giovedì";
+        case "friday":
+            return "venerdì";
+        case "saturday":
+            return "sabato";
+        case "sunday":
+            return "domenica";
+        default:
+            return false;
+    endswitch;
 }
 
 function traduci_mese($mese) {
-    switch(strtolower($giorno)) :
+    switch(strtolower($giorno)):
         case "january" :
             return "Gennaio";
         case "february" :

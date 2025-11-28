@@ -1,3 +1,5 @@
+function esercizio01() {
+
 let giorno = window.prompt("Inserisci il giorno");
 let mese = window.prompt("Inserisci il mese");
 let anno = window.prompt("Inserisci l'anno");
@@ -18,82 +20,104 @@ if (anno == 2025) {
     }
 } else {
     dataFutura = (anno > 2025);
+    /* equivale a:
+    if (anno > 2025) {
+        dataFutura = true;
+        } else {
+            dataFutura = false;
+        }
+    */
 }
 
 if (!risultato) {
-    document.getElementById("esl-risultato").innerText = risultato;
+    if (dataFutura) {
+        risultato = "La data è nel futuro";
+    } else {
+        risultato = "La data è nel passato";
+    }
+}
+document.getElementById("esl-risultato").innerText = risultato;
 }
 
 function esercizio02() {
-    let giorno = window.prompt("inserisci giorno");
-    let mese = window.prompt("inserisci mese");
-    let anno = window.prompt("inserisci anno");
+    let giorno = window.prompt("inserisci il giorno");
+    let mese = window.prompt("inserisci il mese");
+    let anno = window.prompt("inserisci l'anno");
+
+    document.getElementById('es2-dataInserita').innerText = giorno + "/" + mese + "/" + anno;
 
     // converto in formato data
     let data = new Date(giorno + "/" + mese + "/" + anno);
-    data.getDay();
+    // giorno della settimana (da 0 a 6!)
+    let giornoSettimana = data.getDay();
+
+    let risultato;
     
     // stampare mercoledì 26 novembre
     switch (giornoSettimana) {
         case "1":
             risultato = "Lunedì";
-            break;
+        break;
         case "2":
             risultato = "Martedì";
-            break;
+        break;
         case "3":
-            risultato = "mercoledì";
-            break;
+            risultato = "Mercoledì";
+        break;
         case "4":
-            risultato = "giovedì";
-            break;
+            risultato = "Giovedì";
+        break;
         case "5":
-            risultato = "venerdì";
-            break;
+            risultato = "Venerdì";
+        break;
         case "6":
-            risultato = "sabato";
-            break;
+            risultato = "Sabato";
+        break;
         case "7":
-            risultato = "domenica";
-            break;
-            default :
+            risultato = "Domenica";
+        break;
     }
+
+    risultato += " " + giorno + " ";
 
     switch (mese) {
         case "1":
-            window.alert ("Gennaio");
-            break;
+            risultato += "Gennaio";
+        break;
         case "2":
-            window.alert ("Febbraio");
-            break;
+            risultato += "Febbraio";
+        break;
         case "3":
-            window.alert ("Marzo");
-            break;
+            risultato += "Marzo";
+        break;
         case "4":
-            window.alert ("Aprile");
-            break;
+            risultato += "Aprile";
+        break;
         case "5":
-            window.alert ("Maggio");
-            break;
+            risultato += "Maggio";
+        break;
         case "6":
-            window.alert ("Giungno");
-            break;
+            risultato += "Giungo";
+        break;
         case "7":
-            window.alert ("Luglio");
-            break;
+            risultato += "Luglio";
+        break;
         case "8":
-            window.alert ("Agosto");
-            break;
+            risultato += "Agosto";
+        break;
         case "9":
-            window.alert ("Settembre");
-            break;
+            risultato += "Settembre";
+        break;
         case "10":
-            window.alert ("Ottobre");
-            break;
+            risultato += "Ottobre";
+        break;
         case "11":
-            window.alert ("Novembre");
-            break;
+            risultato += "Novembre";
+        break;
         case "12":
-            window.alert ("Dicembre");
-            break;
+            risultato += "Dicembre";
+        break;
     }
+
+    document.getElementById("es2-risultato").innerText = risultato;
+}
