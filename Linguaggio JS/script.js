@@ -11,7 +11,7 @@ window.confirm("sei sicuro?");
 window.prompt("inserisci un numero");
 
 // dichiarazione variabile
-var stringa = "Ciao mondo" ; /* variabile globale, quando l'ho dichiarata la vedono 
+var stringa1 = "Ciao mondo" ; /* variabile globale, quando l'ho dichiarata la vedono 
 tutti all'inerno del file */
 let stringa2 = "ciao mondo!" ; /* variabile locale, se la dichiaro dentro la funzione la vedo solo 
 dentro quella funzione */
