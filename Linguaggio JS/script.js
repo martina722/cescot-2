@@ -7,8 +7,8 @@ window.alert("Benvenuti");
 // pop up con richiesta
 window.confirm("sei sicuro?");
 
-// mostra pop up che chiede un dato
-window.prompt("inserisci un numero");
+/* mostra pop up che chiede un dato
+window.prompt("inserisci un numero"); */
 
 // dichiarazione variabile
 var stringa1 = "Ciao mondo" ; /* variabile globale, quando l'ho dichiarata la vedono 
