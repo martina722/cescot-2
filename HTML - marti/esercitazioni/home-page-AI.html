@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Explorer World - Viaggia con noi</title>
+    <link rel="stylesheet" href="home-page-AI.css">
+    <link rel="icon" href="https://www.aprireinfranchising.it/useruploads/images/news/aprire-una-agenzia-viaggi.jpg">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Explorer World</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#destinazioni">Destinazioni</a></li>
+                    <li><a href="#about">Chi Siamo</a></li>
+                    <li><a href="#contact">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Esplora il mondo con noi!</h2>
+            <p>Viaggi personalizzati, avventure uniche in tutto il mondo e mete mozzafiato</p>
+            <a href="#destinazioni" class="cta-button">Scopri le destinazioni!</a>
+        </div>
+    </section>
+
+    <!-- Destinazioni Section -->
+    <section id="destinazioni" class="destinazioni">
+        <h2>Le destinazioni più scelte</h2>
+        <div class="destination-cards">
+            <div class="destination-card">
+                <img src="https://www.destinazionemagia.it/wp-content/uploads/2024/02/parigi-la-guida-completa-cosa-visitare-1200x700.jpg" alt="Parigi">
+                <h3>Parigi</h3>
+                <p>La città dell'amore</p>
+            </div>
+            <div class="destination-card">
+                <img src="https://cdn.sanity.io/images/24oxpx4s/prod/f4580c0f0324e553611caa98aa6098a6526fefab-6600x4405.jpg?auto=format&fit=crop&q=70&ratio=1" alt="Tokyo">
+                <h3>Tokyo</h3>
+                <p>Un mix perfetto di tradizione e innovazione.</p>
+            </div>
+            <div class="destination-card">
+                <img src="https://www.nobletransfer.com/upload/news/aric1jm529.png" alt="New York">
+                <h3>New York</h3>
+                <p>La città che non dorme mai, sempre emozionante.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>Chi Siamo</h2>
+        <p>Explorer World è un'agenzia di viaggi che offre esperienze uniche e su misura. Con noi, ogni viaggio è un'avventura personalizzata che ti farà scoprire il mondo in modo nuovo e emozionante.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contattaci</h2>
+        <form action="#">
+            <input type="text" placeholder="Nome" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Messaggio" required></textarea>
+            <button type="submit">Invia</button>
+        </form>
+    </section>
+
+    <!-- Bottone per aprire la conversazione -->
+    <a href="javascript:void(0);" id="whatsapp-btn" class="cta-button">Scrivici su WhatsApp!</a>
+
+    <!-- Pop-up della conversazione -->
+    <div id="whatsapp-popup" class="whatsapp-popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>WhatsApp</h3>
+                <span id="close-btn" class="close-btn">&times;</span>
+            </div>
+            <div class="chat-box">
+                <div class="message incoming">
+                    <p><strong>WhatsApp:</strong> Ciao! Come posso aiutarti oggi?</p>
+                </div>
+                <div class="message outgoing">
+                    <p><strong>Tu:</strong> Ciao, avrei bisogno di informazioni sui viaggi!</p>
+                </div>
+                <div class="message incoming">
+                    <p><strong>WhatsApp:</strong> Certo, quale destinazione ti interessa?</p>
+                </div>
+            </div>
+            <input type="text" placeholder="Scrivi un messaggio..." id="message-input" />
+            <button id="send-btn" class="cta-button">Invia</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Explorer World - Tutti i diritti riservati</p>
+    </footer>
+
+    <script src="home-page-AI.js"></script>
+</body>
+</html>
