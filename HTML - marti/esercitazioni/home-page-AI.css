@@ -140,11 +140,6 @@ header nav a:hover {
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 280px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.destination-card:hover {
-    transform: translateY(-10px);
 }
 
 .destination-card img {
