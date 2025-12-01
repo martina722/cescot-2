@@ -100,7 +100,7 @@ header nav a:hover {
     color: black;
 }
 
-.cta-button {
+.button {
     padding: 10px 20px;
     background-color: #ff7b00;
     border-radius: 5px;
@@ -109,7 +109,7 @@ header nav a:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-.cta-button:hover {
+.button:hover {
     background-color: #ff5400;
 }
 
