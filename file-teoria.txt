@@ -1,0 +1,26 @@
+LINGUAGGI LATO SERVER E CLIENT SINTESI
+quando si utilizza un sito web si utilizza un'architettura client/server nella quale il client (browser)
+chiede al server (apache) di spedirgli il codice HTML di una pagina web.
+il server analizza la richiesta e:
+- se viene richiesto un file HTML, lo legge e lo spedisce al client
+- se viene richiesto un file php, lo legge, lo interpreta e genera output HTML e lo spedisce al client.
+php è un linguaggio lato server perchè può essere gestito (tradotto in HTML) solamente dal server,
+se un file php arriva sul client (browser), questo non sa come utilizzarlo.
+Il client trasforma il codice HTML in un'immagine (renderizzazione), l'immagine risultante dal render
+del codice HTML è statica (non può reagire alle azioni dell'utente), per renderla dinemica si utilizza
+il linguaggio javascript. Il browser può eseguire il codice javascript e manipolare il codice HTML 
+secondo quanto indicato nel codice javascript, aggiungendo, togliendo o modificando parti di codice
+HTML.
+
+CACHE DI CODICE (opcache)
+Quando il server genera il codice HTML a partire da un file php, esegue del codice, questo richiede tempo
+e risorse (CPU e RAM); per ogni pagina aperta da ogni utente, è necessario eseguire codice php, anche
+se i risultati non cambiano, questo genera una inefficienza nell'utilizzo delle risorse. Per mitigare
+l'inefficienza si possono utilizzare delle cache: quando il file php viene eseguito, il suo risultato
+(pagina HTML) viene salvato sul disco del server, se un altro utente chiede la stessa pagina, gli viene
+inviato il file HTML già pronto. L'utilizzo do cache alleggerisce il lavoro del server e fa apparire
+il sito più veloce per gli utenti.
+
+La programmazione basata su eventi consente di eseguire funzioni quando l'utente compie particolari
+azioni. gli eventi sono azioni compiute dall'utente (clic, scroll, ...) o schedulate (timer, ...). Quando
+si verifica un evento
