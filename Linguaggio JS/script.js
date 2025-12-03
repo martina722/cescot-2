@@ -172,3 +172,15 @@ console.log(lista.getElementsByClassName('figlio')); // 1 figlio
 // inserisci testo semplice nell'elemento
 lista.innerText = "<li>1</li><li class='figlio'>2</li>";
 console.log(lista.getElementsByClassName('figlio')); // 0 figli
+
+// il punto lenght mi fa capire che si tratta di una variabile di tipo array
+var voti = [4,6,7,8,6,8];
+var somma = object;
+for (let i = 0; i < voti,lenght; i++) {
+    somma += voti[i];
+}
+console.log("Media = " + (somma / voti.lenght));
+
+window.prompt("Inserisci un numero");
+
+var elementi = [1,2,3,4,5,6,7,8,9]
