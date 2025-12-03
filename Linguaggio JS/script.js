@@ -1,8 +1,9 @@
 // stampa in console
 console.log("Ciao mondo");
 
-// mostra un pop up con messaggio
+/* mostra un pop up con messaggio
 window.alert("Benvenuti");
+*/
 
 // pop up con richiesta
 window.confirm("sei sicuro?");
@@ -84,7 +85,7 @@ console.log(a + b); // somma
 console.log(a + c); // concatenazione -> "2 attaccato a 1" = 21
 console.log(somma + b); // a + c = 2 e 1 poi aggiungo il 3, quindi 213
 console.log(somma > 20); // somma viene convertito in numero -> quindi è vero
-console.log(somma.lenght); // lunghezza della stringa
+console.log(somma.length); // lunghezza della stringa
 console.log(a + b + c); // 51, perchè 2+3=5 poi aggiungo "1", quindi 51
 
 var d;
@@ -163,7 +164,7 @@ console.log(document.querySelector('.elementi'));
 console.log(document.querySelectorAll('.elementi'));
 
 var lista = document.getElementById('genitore');
-var lista = document.getElementsByClassName('figlio'); // 3 figli
+//var lista = document.getElementsByClassName('figlio'); // 3 figli
 
 // inserisci il codice HTML nell'elemento
 lista.innerHTML = "<li>1</li><li class='figlio'>2</li>";
@@ -173,14 +174,57 @@ console.log(lista.getElementsByClassName('figlio')); // 1 figlio
 lista.innerText = "<li>1</li><li class='figlio'>2</li>";
 console.log(lista.getElementsByClassName('figlio')); // 0 figli
 
-// il punto lenght mi fa capire che si tratta di una variabile di tipo array
+// il punto length mi fa capire che si tratta di una variabile di tipo array
 var voti = [4,6,7,8,6,8];
 var somma = object;
-for (let i = 0; i < voti,lenght; i++) {
+for (let i = 0; i < voti,length; i++) {
     somma += voti[i];
 }
-console.log("Media = " + (somma / voti.lenght));
+console.log("Media = " + (somma / voti.length));
 
 window.prompt("Inserisci un numero");
 
-var elementi = [1,2,3,4,5,6,7,8,9]
+var elementi = [1,2,3,4,5,6,7,8,9];
+
+let i = 0;
+let trovato = false;
+
+while (!trovato && i < elementi.length) {
+    if (elementi[i] == numero) {
+        trovato = true;
+    }
+    i++;
+}
+
+if (trovato) {
+    console.log("Elemento trovato");
+} else {
+    console.log("Elemento non trovato");
+}
+
+var array = [1,2,3,4,5];
+var oggetto = {
+    nome: "Luca",
+    cognome: "Rossi"
+};
+
+/* ciclo for of, ho stampato 1,2,3,4,5, funziona solo sugli elementi iterabili, devo poterci fare
+un ciclo sopra 
+*/
+for (valore of array) {
+    console.log(valore);
+}
+
+/* ciclo for in, ho stampato nome e cognome, per prendere le proprietà separatamente una alla volta
+scrivo (oggetto[chiave])
+*/
+for (chiave in oggetto) {
+    console.log(chiave);
+}
+
+var clickMeButton = document.getElementById("click-me-button");
+
+clickMeButton.addEventListener('mouseenter', function() {
+    clickMeButton.style.top = Math.random() * 100 + "%";
+    clickMeButton.style.left = Math.random() * 100 + "%";
+})

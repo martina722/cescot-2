@@ -121,3 +121,68 @@ function esercizio02() {
 
     document.getElementById("es2-risultato").innerText = risultato;
 }
+
+// nel ciclo while dovrò interagire col cliente
+function esercizio03() {
+    let numeroInserito = window.prompt("Inserisci un numero da 1 a 10");
+    let numeroDaTrovare = 5;
+
+    while (numeroInserito != numeroDaTrovare) {
+        numeroInserito = window.prompt("Sbagliato, riprova!");
+    }
+
+    document.getElementById('es3-numeroScelto').innerText = "Il numero era" + numero // ???????
+    document.getElementById('es3-risultato').innerText = "Congratulazioni!";
+}
+
+/* per generare numero casuali, da 1 a 10, si moltiplica per 10, floor fa l'arrotondamento per difetto
+invece ceil per eccesso, per evitare che esca 0 si può aggiungere + 0.1 dopo * 10
+*/
+let numeroDaTrovare = Math.floor(Math.random() * 10); // Math.ceil(math.random() * 10);
+
+function esercizio04() {
+    let numeroInserito = window.prompt("Inserisci un numero!");
+    document.getElementById('es4-numeroInserito').innerText = numeroInserito;
+
+    let risultato = 1;
+
+    for (let i = 1; i <= numeroInserito; i++) {
+        risultato // ??????????
+    }
+}
+
+function esercizio05() {
+    let studente = {
+        nome: "",
+        cognome: "",
+        matricola: "",
+        voti: []
+    }
+
+    // input
+    for (chiave in studente) {
+        if (chiave != "voti") {
+            studente[chiave] = window.prompt("Inserire " + chiave);
+        } else {
+            let stringaVoti = window.prompt("Inserire voti separati da ','");
+            studente[chiave] = stringaVoti.split(",");
+        }
+    }
+
+    // calcolo media
+    let mediaVoti = 0;
+    for (voto of studente.voti) {
+        mediaVoti += parseInt(voto); // o parseFloat per i decimaliS
+    }
+    mediaVoti = mediaVoti / studente.voti.length;
+
+    // stampa
+    let risultato = "";
+    for (chiave in studente) {
+        if (chiave != "voti")
+            risultato += chiave + ": " + studente[chiave] + "<br/";
+    }
+    document.getElementById(es5-risultato).innerHTML = risultato;
+}
+
+
