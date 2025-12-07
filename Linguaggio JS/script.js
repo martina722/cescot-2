@@ -5,8 +5,9 @@ console.log("Ciao mondo");
 window.alert("Benvenuti");
 */
 
-// pop up con richiesta
+/* pop up con richiesta
 window.confirm("sei sicuro?");
+*/
 
 /* mostra pop up che chiede un dato
 window.prompt("inserisci un numero"); */
@@ -105,7 +106,7 @@ console.log(e == true); // falso
 console.log(d == e); // entrambi falsi -> true
 console.log(d === e); //null è diverso da undefined
 
-// controllo di flusso
+/* controllo di flusso
 var numero = window.prompt("Inserisci un numero");
 
 if (numero % 2 == 0) {
@@ -155,6 +156,7 @@ switch (mese) {
     default :
         window.alert("mese non valido");
 }
+*/
 
 console.log(document.getElementById("elemento-1"));
 console.log(document.getElementsByClassName('elementi'));
@@ -182,7 +184,7 @@ for (let i = 0; i < voti,length; i++) {
 }
 console.log("Media = " + (somma / voti.length));
 
-window.prompt("Inserisci un numero");
+// window.prompt("Inserisci un numero");
 
 var elementi = [1,2,3,4,5,6,7,8,9];
 
