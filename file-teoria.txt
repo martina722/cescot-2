@@ -1,1 +1,43 @@
+wordpress: programma per costruire siti internet, si può utilizzare anche per web app per cellulare, installabili direttamente dal sito web.
+
+
+protocolli di rete
+è un insieme di regole che definiscono come i dati vengono codificati, instradati, ricostruiti al loro arrivo; i protocolli esistenti sono
+numerosi, pensati per scopi speicifici, i protocolli non sono interoperabili (non posso spedire dati con un protocollo e sperare di ricerverli
+con un altro differente). I protocolli di basso livello si occupano di gestire la trasmissione di dati (si parla di bit non di file) attraverso
+reti di vario tipo, consentendo di creare software senza preoccuparsi di gestire il trasferimento fisico dei dati.
+
+protocollo ip (internet protocol)
+Serve per distribuire dati, più precisamente per gestisce il trasferimento di bit da un computer all'altro, gestendo l'imstradamento del messaggio
+attraverso rete di computer non nota. L'instradamento avviene tramite codice identificativo detto numero IP, ogni apparato connesso tramite questo 
+numero deve avere un indirizzo univoco, unico, in modo da garantire che i dati arrivino al terminale corretto. Il protocollo originale, detto (IPv4 = 
+IP con 4 cifre) assegna numeri utilizzando 4 byte, consentendo di generare 256^4 (4* 10^9) numeri unici, con l'aumentare del numero di periferiche
+connesse, il protocollo IPv4 ha raggiunto il limite di indirizzamento. Il protocollo IPv6 assegna numeri utilizzando 4 gruppi di cifre, ognuna
+costruita da 4 valori esadecimali ((16^4)^4 numeri unici, pari a circa 18 * 10^18 numeri unici); il primo numero del codice si dice "classe".
+La versione IPv6 non è compatibile con la versione IPv4, questo comporta complessità in fase di transizionbe fra le due versioni. Il protocollo IP prevede
+il concetto di "Porta", ovvero un numero che identifica il processo (programma) che deve ricevere il dato in arrivo, questo consente a più software
+presenti sullo stesso computer di scambiare dati: ogni software presente sul computer ha lo stesso numero IP (quello assegnato al computer) e una 
+porta diversa (quella del software).
+L'indirizzo IP 127.0.0.1 è un indirizzo IP "speciale" (indirizzo di lookup) e identifica la stessa macchina dalla quale è partito il messaggio, consente
+ di inviare messaggi fra client e server che funzionano sullo stesso computer. L'indirizzo 127.0.0.1 prevede l'alias localhost (indirizzare un messaggio
+ a localhost o a 127.0.0.1 è indifferente), i sistemi prevedono una tabella di indirizzamento per gestire gli alias,......................
+  per assegnare alias, è sufficiente aggiungere una riga al file hosts.
+
+  TCP
+  il protocollo TCP (Transfer Control Protocol) si occupa di gestire il trasferimento dati, utilizzando il protocollo IP per l'instradamento (per trovare
+  il percorso che i dati devono seguire), infatti normalmente i due protocolli vengono nominati assieme come TCP/IP. TPC nasce per garantire che un file
+  venga trasferito correttamente tra due computer (mittente e destinatario), per farlo deve garantire che:
+  - tutti i bit del file arrivino al destinatario
+  - tutti i bit arrivino corretti
+  - tutti i bit arrivino nell'ordine corretto
+  TCP divide il file (i bit) da trasmettere in pacchetti da poche migliaia di bit, utilizzando IP invia ogni singolo pacchetto al destinatario, sul quale
+  verifica che ogni pacchetto sia corretto, riordina i pacchetti arrivati, verifica che siano arrivati tutti, per farlo:
+  - numera i pacchetti
+  - aggiunge un codice di controllo per l'integrità (CRC = Cyclic Redundancy Code)
+  - attende un certo tempo (timeout) per ogni pacchetto in attesa, se non arriva si chiede il rinvio
+  - marca la fine della trasmissione
+  TCP notifica automaticamente al mittente eventuali pacchetti da reinviare (poichè non sono arrivati / sono arrivati danneggiati. nonostante i pacchetti
+  siano soliti arrivare in ritardo). TCP invia più dati rispetto ai bit da trasferire, questi dati sono chiamati informazioni di controllo (numero di
+  pacchetto, CRC, numero IP del destinatario e del mittente, ...) e riducono la reale velocità della trasmissione.
+
 
