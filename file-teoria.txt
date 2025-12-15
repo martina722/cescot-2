@@ -23,7 +23,7 @@ L'indirizzo IP 127.0.0.1 è un indirizzo IP "speciale" (indirizzo di lookup) e i
  a localhost o a 127.0.0.1 è indifferente), i sistemi prevedono una tabella di indirizzamento per gestire gli alias,......................
   per assegnare alias, è sufficiente aggiungere una riga al file hosts.
 
-  TCP
+  TCP (trasferisce dati, cosa rappresentano non è rilevante)
   il protocollo TCP (Transfer Control Protocol) si occupa di gestire il trasferimento dati, utilizzando il protocollo IP per l'instradamento (per trovare
   il percorso che i dati devono seguire), infatti normalmente i due protocolli vengono nominati assieme come TCP/IP. TPC nasce per garantire che un file
   venga trasferito correttamente tra due computer (mittente e destinatario), per farlo deve garantire che:
@@ -36,8 +36,46 @@ L'indirizzo IP 127.0.0.1 è un indirizzo IP "speciale" (indirizzo di lookup) e i
   - aggiunge un codice di controllo per l'integrità (CRC = Cyclic Redundancy Code)
   - attende un certo tempo (timeout) per ogni pacchetto in attesa, se non arriva si chiede il rinvio
   - marca la fine della trasmissione
-  TCP notifica automaticamente al mittente eventuali pacchetti da reinviare (poichè non sono arrivati / sono arrivati danneggiati. nonostante i pacchetti
-  siano soliti arrivare in ritardo). TCP invia più dati rispetto ai bit da trasferire, questi dati sono chiamati informazioni di controllo (numero di
+  TCP notifica automaticamente al mittente eventuali pacchetti da reinviare (poichè non sono arrivati / sono arrivati danneggiati, nonostante i pacchetti
+  siano soliti arrivare già danneggiati, ad es. qualche bit rovinato). TCP invia più dati rispetto ai bit da trasferire, questi dati sono chiamati informazioni di controllo (numero di
   pacchetto, CRC, numero IP del destinatario e del mittente, ...) e riducono la reale velocità della trasmissione.
 
+UDP
+Il protocollo UDP trasferisce dati in maniera simile a TCP, perchè:
+- divide il messaggio in pacchetti;
+- i pacchetti vengono numerati e inviati;
+- a destinazione, i pacchetti vengono esaminati (CRC) ma non vengono richiesti eventuali pacchetti persi, danneggiati, in ritardo
+Il protocollo UDP non garantisce che il file trasmesso arrivi a destinazione integro, ma garantisce che i singoli pacchetti arrivino con il minimo
+ritardo possibile; inoltre si utilizza per garantire la massima velocità di trasferimento possibile, a costo di sacrificare la qualità del file, per
+questo motivo si utilizza per scopi particolari e speicifici (ad es. lo streaming di dati, quindi videocall, telefonia, ...). Normalmente quando si 
+utilizza un traferimento UDP, si utilizza un buffer di dati: il sistema scarica in anticipo alcuni secondi di trasmissione (vari mgabyte), per gestire
+eventuali ritardi nell'arrivo dei pacchetti. Il buffer è utilizzabile solamente per trasmissioni asincrone (IPTV, ...), quando la trasmissione è sincrona
+(VOIP, videocall, ...) non è possibile utilizzare il buffer, aumentando il rischio di trasmissione di bassa qualità.
+
+Commenti
+Quando si scrive un file sorgente, è possibile inserire commenti all'interno del codice, questi non hanno effetti funzionali e vengono ignorati
+dall'interprete o dal compilatore, pertanto non rallentano l'esecuzione del codice e non aumentano le risorse necessarie; aiutano poi a comprendere
+la logica di funzionamento del vecchio codice, ma costituiscono anche la guida per l'implementazione. I commenti sono di due tipi principali:
+1- commento in linea, serve a documentare, quindi spiegare come funzionano parti di codice (cicli, righe di codice, ...)
+2- commento funzionale, serve a documentare le funzioni, utilizzando una struttura e una sintassi specifiche che consentono di automatizzare il processo
+di docuemntazione.
+In php, i commenti in linea possono eseere marcati con:
+// identifica una linea di commento
+/* */ identificano inizio e fine di un commento (ctrl k c trasforma in commento le cose selezionate, ctrl k u ritorna a essere codice).
+I commenti funzionali hanno questa struttura:
+- sono racchiusi da /** */
+- marcano ogni argomento con @param
+- per ogni argomento richiedono il tipo del dato e la spiegazione dell'argomento
+- marcano il valore di ritorno con @return
+- il valore di ritorno richiede il tipo di dato restituito e la spiegazione del significato.
+I commenti funzionali non hanno effetto sull'esecuzione del codice, ma consentono di generare docuemntazione esterna (manuali di programmazione, codice
+di wordpress, ...) e interna (informazioni ...............).
+
+Coordinamento di progetti
+Il coordinamento prevede:
+- scomposizione del prodotto in elementi separati;
+- assegnazione degli elementi alle persone che devono implementarli;
+- gestione dei tempi di lavorazione.
+Per gestire i tempi si utilizzano approcci lineari (ciclo di vita del software, ...) o a cascata (implementazione del software, ...), a seconda delle
+necessità, per rappresentare i tempi si utilizzano infografiche (GANTT, ...) o tabelle.
 
