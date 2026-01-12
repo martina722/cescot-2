@@ -1,0 +1,10 @@
+h1 {
+    color: red;
+}
+h2 {
+    color: white;
+    background-color: red;
+}
+.cliente {
+    border: 2px rgb(23, 22, 22);
+}
