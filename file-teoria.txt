@@ -12,3 +12,22 @@ Per connettersi al database è necessario utilizzare MySQLi, passando le informa
 La funzione mysqli_connect si collega al database e restituisce una variabile che contiene la connessione. La funzione mysqli_query esegue una query e restituisce una variabile che contiene il risultato della query. La funzione fetch consente di ciclare all'interno della tabella contenuta nel risultato della query, restituisce un array che contiene il valore di ogni campo della tabella.
 Rischi dell'interazione con database
 Quando si lavora con i database, è importante  tenere in considerazione i rischi legati all'interazione fra i linguaggi utilizzati sul server web e il DBMS. Il rischio più comune che si corre è quello della SQL Injection, una tecnica basata su SQL che può consentire ad utenti non autorizzati di eseguire query a loro piacimento sul database. Gli utenti possono interagire con il database tramite l'applicazione messa a loro disposizione, compilando moduli o modificando i parametri presenti sull'URL delle pagine. Se non si controlla che le variabili che vengono utilizzate per costruire le query siano "sicure", si rischia che gli utenti possano inserire intere query all'interno di un parametro dell'URL o di un campo di un modulo e che la nostra procedura le esegua.
+
+
+JOIN
+Le JOIN consentono di ricostruire le relazioni fra tabelle, tipiche dei database relazionali. Le tabelle hanno relazioni strutturali, queste relazioni sono evidenziate nel diagramma E/R (entities relationship) associato al databaase.
+Le JOIN derivano direttamente dalle relazioni presenti nel diagramma E/R e sono costituite dalle corrispondenze fra i campi che mettono in relazione le tabelle. Le join non dipendono dalla query, ma solamente dal diagramma E/R, es: join tra clienti e prenotazioni.
+clienti INNER JOIN prenotazioni ON clienti.id_cliente = prenotazioni.cliente
+Le join possono essere di 4 tipi:
+- INNER JOIN, restituisce solamente i record che hanno una corrispondenza fra le due tabelle
+- LEFT OUTER JOIN, restituisce tutti i record della tabella di sinistra e i soli record della tabella di destra che hanno una corrispondenza nella tabella di sinistra
+- RIGHT OUTER JOIN, restituisce tutti i record della tabella di destra e i soli record della tabella di sinistra che hanno una corrispondenza nella tabella di destra
+- FULL OUTER JOIN (non supportata da MySQL), restituisce tutti i record di entrambe le tabelle
+Nelle OUTER JOIN, gli eventuali record che non hanno corrispondenza vengono riempiti con valori NULL
+clienti LEFT OUTER JOIN prenotazioni ON clienti.id_cliente = prenotazioni.cliente
+Es. restituire nome della città, nome e cognome del cliente, data di arrivo e data di partenza per tutte le prenotazioni che hanno importo superiore a 250.
+SELECT citt.citta,clienti.nome,clienti.cognome,prenotazioni.arrivo,prenotazioni.partenza
+FROM citta
+INNER JOIN clienti ON citta.id_citta = clienti.citta
+INNER JOIN prenotazioni ON clienti.id_cliente = prenotazioni.cliente
+WHERE prenotazioni.importo > 250
