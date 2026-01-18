@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="elementi">Linguaggio JS</h1>
+        <p id="elemento-1" class="elementi">Ciao Mondo!</p>
+
+        
+        <ul id="genitore">
+            <li class="figlio">2</li>
+            <li class="figlio">3</li>
+            <li>4</li>
+            <li class="figlio">5</li>
+        </ul>
+        
+        <p class="figlio">Figlio esterno</p>
+
+        <button id="click-me-button">Cliccami!</button><br/><br/>
+
+        <form action="#" method="post">
+            <input type="text" placeholder="es. Mario" value="Valore" required disabled /><br/>
+
+            <label for="email">Email:</label>
+            <input id="email" type="email" placeholder="a@b.it"/><br/>
+            <input id="password" type="password" placeholder="Password" />
+            <button id="show-password">
+                Mostra la password
+            </button>
+            <br/>
+            <input type="tel" placeholder="333 123456" /><br/>
+
+            <input type="number" placeholder="num" /><br/>
+            <input type="date" placeholder="gg/mm/aaaa" /><br/>
+            <input type="time" placeholder="hh:mm" /><br/>
+            <input type="file" /><br/>
+
+            <p>Sei maggiorenne?</p>
+            
+            <input type="radio" name="radio-1" value="val-1" id="radio-1-1" />
+            <label for="radio-1-1">S&igrave;</label><br/>
+
+            <input type="radio" name="radio-1" value="val-2" id="radio-1-2"/>
+            <label for="radio-1-2">No</label><br/>
+
+
+            <input type="checkbox" id="privacy" required/> <label for="privacy">* Ho letto e accetto i termini e le condizioni di vendita</label><br/>
+
+            <select>
+                <optgroup>
+                    <option value="val-1">Valore 1</option>
+                </optgroup>
+                <optgroup>
+                    <option value="val-1">Valore 2</option>
+                </optgroup>
+            </select><br/>
+
+            <textarea></textarea><br/>
+
+            <button type="submit">
+                Invia <br/>
+                il modulo!
+            </button>
+            <input type="submit" value="Invia<br/>il modulo!" />
+
+            <button type="reset">Reset</button>
+        </form>
+
+        <script src="script.js"></script>
+    </body>
+</html>
