@@ -1,0 +1,10 @@
+{
+    "name": "",
+    "vrsion": "1.0.0",
+    "main": "build/index.js",
+
+    "scripts": {
+        "build": "wp-scrpts build",
+        "start": "wp-scripts start"
+    }
+}
