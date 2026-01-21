@@ -1,6 +1,8 @@
 import { registerBlockType } from '@wordpress/blocks';
 
 import { 
+    InspectorControls,
+    PanelColorSettings,
     useBlockProps 
 } from '@wordpress/block-editor';
 
@@ -14,7 +16,8 @@ registerBlockType( block.name, {
     icon: block.icon,
     attributes: {
         blockId: {
-            type: 'string'
+            type: 'string',
+            'default': ''
         }
     },
     edit: ( props ) => {
@@ -32,7 +35,21 @@ registerBlockType( block.name, {
         });
 
         return <span { ...blockProps }>('Your block content goes here')</span>;
-    },
+
+        return <>
+        <InspectorControls key="settings">
+            <PanelBody title="Impostazioni Bottone" 
+            <TextControl
+                label="URL di destinazione"
+                value={props.attributes.targetUrl}
+                onChange={(valoreAttuale) => {
+                    props.attributes.targetUrl = valoreAttuale;
+                } }
+            />
+        </InspectorControls>
+        <InspectorControls key="styles">
+        </InspectorControls>
+    </>
     save: ( props ) => {
         const blockProps = useBlockProps.save();
         

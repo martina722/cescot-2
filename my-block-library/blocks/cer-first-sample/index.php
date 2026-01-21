@@ -7,6 +7,10 @@
  */
 defined('ABSPATH') || exit;
 
+add_action('init', function() {
+	register_block_type(__DIR__);
+});
+
 if (!function_exists('BLOCK_NAME_register_block')) :
 	/**
 	 * Registers all block assets so that they can be enqueued through Gutenberg in
