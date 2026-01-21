@@ -49,4 +49,22 @@
     }
     add_action('init', 'cer_custom_block_styles');
 
+    function cer_custom_block_category($categories) {
+        // prepare the arguments with default values
+        $categories = array(
+            'slug' => 'cescot-blocks',
+            'title' => 'Cescot'
+        );
+
+        array_splice(
+            $categories,
+            3, //posizione
+            0,
+            array($categories)
+        );
+
+        return $categories;
+    }
+    add_filter('block_categories_all', 'cer_custom_block_category', 10, 1);
+
     include_once('blocks/index.php');
