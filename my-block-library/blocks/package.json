@@ -1,0 +1,16 @@
+{
+  "name": "mypackage",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^31.3.0"
+  }
+}
