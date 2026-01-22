@@ -1,12 +1,12 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
-    "title": "Boilerplate Block",
-   	"name": "immaginificio/imm-gutenberg-boilerplate",
-   	"description": "Boilerplate for Gutenberg Blocks",
-    "category": "immaginificio",
+    "title": "Button Block",
+   	"name": "cescot/cer-button",
+   	"description": "Bottone personalizzato",
+    "category": "cescot-blocks",
 	"icon": "hammer",
-	"textdomain": "immaginificio",
+	"textdomain": "myblocklibrary",
     "editorScript": "file:./build/index.js",
     "viewScript": "file:./assets/js/script.js",
     "editorStyle": "file:./assets/css/editor.css",
@@ -31,4 +31,3 @@
         }
     }
 }
-
