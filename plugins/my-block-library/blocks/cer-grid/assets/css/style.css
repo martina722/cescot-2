@@ -1,0 +1,4 @@
+.wp-block-cescot-cer-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--cer-grid--columns, 3), lfr);
+}
