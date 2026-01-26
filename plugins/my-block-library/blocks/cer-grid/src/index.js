@@ -8,7 +8,7 @@ registerBlockType( blockMeta.name, {
     category: blockMeta.category,
     icon: blockMeta.icon,
     attributes: {
-        "columns": {
+        "mobileColumns": {
             "type": "number",
             "default": 3
         }
